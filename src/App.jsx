@@ -1,24 +1,27 @@
 import "./App.css";
-import { useTickets } from "./hooks/useTickets";
+import { useTickets } from "./hooks/useTickets.jsx";
+import TicketList from "./components/Ticket/TicketList.jsx";
+import Sidebar from "./components/Sidebar/Sidebar.jsx";
+import { useState } from "react";
 
 function App() {
   const tickets = useTickets();
-  console.log(tickets);
+  const [currency, setCurrency] = useState("RUB");
+
   return (
-    <div>
-      <h1>Tickets</h1>
-      {tickets ? (
-        <ul>
-          {tickets.map((ticket, index) => (
-            <li key={index}>
-              <strong>{ticket.origin}</strong> - {ticket.price}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Loading tickets...</p>
-      )}
-    </div>
+    <main>
+      <div className="container">
+        <h1 className="header">Tickets</h1>
+        <section className="content">
+          <Sidebar handleCurrency={setCurrency} activeCurrency={currency} />
+          {tickets ? (
+            <TicketList tickets={tickets} currency={currency} />
+          ) : (
+            <p>Loading tickets...</p>
+          )}
+        </section>
+      </div>
+    </main>
   );
 }
 

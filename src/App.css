@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f7fafa;
+    font-family: "Montserrat", sans-serif;
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header {
+    text-align: center;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.ticketList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.ticketCard {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    padding: 30px 20px;
+    box-shadow: 0 0 3px #e2f8fd;
+    background-color: #fff;
+    border-radius: 8px;
+    gap: 40px;
+}
+.ticketCardPrice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.ticketCardPrice::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    right: -20px;
+    height: calc(100% + 60px);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.ticketCardBtn {
+    width: 180px;
+    text-align: center;
+    padding: 20px 25px;
+    border-radius: 8px;
+    border: none;
+    background-color: #fe9304;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+.ticketCardBtn:hover {
+    background-color: #fe9304cc;
+    box-shadow: 0 0 3px #fe93041a;
+}
+
+.ticketCardInfo {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.ticketCardFlightInfo {
+    display: flex;
+    flex-direction: column;
+}
+.ticketCardTime {
+    margin-bottom: 10px;
+    font-size: 36px;
+    font-weight: 500;
+}
+.ticketCardRoute {
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+}
+.ticketCardDimmedText {
+    color: #0000004d;
+    font-size: 14px;
+    font-weight: 400;
+}
+.ticketCardStops {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    align-items: center;
+}
+.stopsSeparator {
+    display: flex;
+    align-items: center;
+}
+.stopsPlaneLine {
+    width: 130px;
+    margin-top: 5px;
+    height: 2px;
+    background-color: #0000004d;
+}
+.stopsPlane {
+    transform: rotate(45deg);
+    color: #0000004d;
+}
+.sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 3px #e2f8fd;
+    align-self: start;
+}
+.currencyButtonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.currencyCaption {
+    font-size: 16px;
+    font-weight: 500;
+}
+.currencyButtons {
+    display: flex;
+}
+.currencyButtons button {
+    border: 1px solid #e2e2e2cc;
+    padding: 12px 18px;
+    text-align: center;
+    color: #409af7;
+    background: transparent;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.currencyButtons button:hover {
+    background-color: #409af71a;
+    border-color: #409af7;
+}
+.currencyButtons button.active {
+    color: #fff;
+    background-color: #409af7;
+    cursor: default;
+}
+.currencyButtons button:first-of-type {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.currencyButtons button:last-of-type {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
