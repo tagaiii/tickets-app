@@ -14,6 +14,11 @@ export const useTickets = () => {
   useEffect(() => {
     fetchTickets();
   }, []);
+  const sortTickets = (a, b) => {
+    if (Number(a.price) < Number(b.price)) return -1;
+    if (Number(a.price) > Number(b.price)) return 1;
+    return 0;
+  };
 
-  return tickets;
+  return tickets.sort(sortTickets);
 };
