@@ -47,7 +47,7 @@ const TicketCard = ({ ticket, currency }) => {
     <div className="ticketCard">
       <div className="ticketCardPrice">
         <img
-          src="/turkish-airlines-logo.png"
+          src={`${import.meta.env.BASE_URL}turkish-airlines-logo.png`}
           alt="Turkish Airlines Logo"
           height={50}
         />

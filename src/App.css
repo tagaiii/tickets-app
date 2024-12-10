@@ -187,6 +187,11 @@ body {
 .stopCheckbox input[type="checkbox"] {
     width: 20px;
     height: 20px;
+    cursor: pointer;
+}
+.stopCheckbox label {
+    cursor: pointer;
+    user-select: none;
 }
 .stopCheckbox input[type="checkbox"]:checked {
     background-color: #409af7;
@@ -194,7 +199,7 @@ body {
 .stopCheckboxLine {
     padding: 8px 0;
     transition: 0.3s;
-
+    cursor: pointer;
 }
 .stopCheckboxLine:hover {
     background-color: #409af71a;
