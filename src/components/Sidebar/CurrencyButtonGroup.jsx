@@ -3,7 +3,7 @@ const CurrencyButtonGroup = ({ handleCurrency, activeCurrency }) => {
 
   return (
     <div className="currencyButtonGroup">
-      <h3 className="currencyCaption">ВАЛЮТА</h3>
+      <h3 className="sidebarCaption">Валюта</h3>
       <div className="currencyButtons">
         {currencies.map((currency, index) => (
           <button

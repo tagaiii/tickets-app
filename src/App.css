@@ -113,20 +113,25 @@ body {
     color: #0000004d;
 }
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     background-color: #fff;
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 3px #e2f8fd;
     align-self: start;
+    padding-bottom: 20px;
 }
 .currencyButtonGroup {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 20px;
 }
-.currencyCaption {
+.sidebarCaption {
     font-size: 16px;
     font-weight: 500;
+    text-transform: uppercase;
 }
 .currencyButtons {
     display: flex;
@@ -159,4 +164,38 @@ body {
 .currencyButtons button:last-of-type {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+}
+.stopButtonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.stopCaption {
+    padding: 0 20px;
+}
+.checkboxGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.stopCheckbox {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 8px;
+}
+.stopCheckbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+.stopCheckbox input[type="checkbox"]:checked {
+    background-color: #409af7;
+}
+.stopCheckboxLine {
+    padding: 8px 0;
+    transition: 0.3s;
+
+}
+.stopCheckboxLine:hover {
+    background-color: #409af71a;
 }
