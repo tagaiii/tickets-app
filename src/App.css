@@ -73,6 +73,7 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    margin-left: auto;
 }
 .ticketCardFlightInfo {
     display: flex;
@@ -152,6 +153,7 @@ body {
     color: #fff;
     background-color: #409af7;
     cursor: default;
+    pointer-events: none;
 }
 .currencyButtons button:first-of-type {
     border-bottom-left-radius: 5px;
