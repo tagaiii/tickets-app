@@ -1,5 +1,5 @@
 const StopButtonGroup = ({ handleStopsFilter, activeStopsFilter }) => {
-  const plainOptions = [
+  const options = [
     {
       value: "all",
       label: "Все",
@@ -22,30 +22,56 @@ const StopButtonGroup = ({ handleStopsFilter, activeStopsFilter }) => {
     },
   ];
   const handleCheckboxChange = (value, isChecked) => {
-    handleStopsFilter((prevCheckedList) =>
-      isChecked
-        ? [...prevCheckedList, value]
-        : prevCheckedList.filter((val) => val !== value),
-    );
+    if (value === "all") {
+      handleStopsFilter(["all"]);
+    }
+    if (isChecked) {
+      handleStopsFilter((prevCheckedList) => [
+        ...prevCheckedList.filter((val) => val !== "all"),
+        value,
+      ]);
+    } else {
+      handleStopsFilter((prevStopsFilter) =>
+        prevStopsFilter.filter((val) => val !== value),
+      );
+      if (activeStopsFilter.filter((val) => val !== value).length === 0) {
+        handleStopsFilter(["all"]);
+      }
+    }
   };
   return (
     <div className="stopButtonGroup">
       <h3 className="sidebarCaption stopCaption">Количество пересадок</h3>
       <div className="checkboxGroup">
-        {plainOptions.map((option, index) => (
+        {options.map((option, index) => (
           <div key={index} className="stopCheckboxLine">
             <div className="stopCheckbox">
-              <input
-                type="checkbox"
-                id={option.value}
-                name={option.value}
-                value={option.value}
-                onChange={(e) =>
-                  handleCheckboxChange(option.value, e.target.checked)
-                }
-                checked={activeStopsFilter.includes(option.value)}
-              />
-              <label htmlFor={option.value}>{option.label}</label>
+              <div className="stopCheckboxInput">
+                <input
+                  type="checkbox"
+                  id={option.value}
+                  name={option.value}
+                  value={option.value}
+                  onChange={(e) =>
+                    handleCheckboxChange(option.value, e.target.checked)
+                  }
+                  checked={activeStopsFilter.includes(option.value)}
+                  disabled={
+                    !!(
+                      option.value === "all" &&
+                      activeStopsFilter.includes(option.value) &&
+                      activeStopsFilter.length === 1
+                    )
+                  }
+                />
+                <label htmlFor={option.value}>{option.label}</label>
+              </div>
+              <span
+                className="stopOnlyBtn"
+                onClick={() => handleStopsFilter([option.value])}
+              >
+                ТОЛЬКО
+              </span>
             </div>
           </div>
         ))}
