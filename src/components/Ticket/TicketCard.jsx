@@ -1,6 +1,18 @@
 import { Plane } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const TicketCard = ({ ticket, currency }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 645);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  });
+
   const formatDate = (dateString) => {
     const [day, month, year] = dateString.split(".").map(Number);
     const date = new Date(2000 + year, month - 1, day);
@@ -15,6 +27,7 @@ const TicketCard = ({ ticket, currency }) => {
     const [weekday, restDate] = formattedDate.split(", ");
     return `${restDate}, ${weekday}`;
   };
+
   const formatTime = (timeString) => {
     const [hours, minutes] = timeString.split(":");
 
@@ -23,6 +36,7 @@ const TicketCard = ({ ticket, currency }) => {
 
     return `${formattedHours}:${formattedMinutes}`;
   };
+
   const convertPrice = (priceString, currency) => {
     const exchangeRates = {
       RUB: {
@@ -43,6 +57,7 @@ const TicketCard = ({ ticket, currency }) => {
     );
     return `${convertedPrice}${exchangeRates[currency].symbol}`;
   };
+
   return (
     <div className="ticketCard">
       <div className="ticketCardPrice">
@@ -51,9 +66,11 @@ const TicketCard = ({ ticket, currency }) => {
           alt="Turkish Airlines Logo"
           height={50}
         />
-        <button className="ticketCardBtn">
-          Купить за {convertPrice(ticket.price, currency)}
-        </button>
+        {!isMobile && (
+          <button className="ticketCardBtn">
+            Купить за {convertPrice(ticket.price, currency)}
+          </button>
+        )}
       </div>
       <div className="ticketCardInfo">
         <div className="ticketCardFlightInfo">
@@ -84,6 +101,11 @@ const TicketCard = ({ ticket, currency }) => {
           </p>
         </div>
       </div>
+      {isMobile && (
+        <button className="ticketCardBtn">
+          Купить за {convertPrice(ticket.price, currency)}
+        </button>
+      )}
     </div>
   );
 };

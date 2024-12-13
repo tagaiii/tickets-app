@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body {
     background-color: #f7fafa;
@@ -30,6 +31,7 @@ body {
     gap: 20px;
 }
 .ticketCard {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,7 +53,7 @@ body {
     position: absolute;
     width: 1px;
     top: 0;
-    left: 206px;
+    left: 213px;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.05);
 }
@@ -74,7 +76,6 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    margin-left: auto;
 }
 .ticketCardFlightInfo {
     display: flex;
@@ -253,7 +254,7 @@ body {
     }
     .ticketCard::before {
         width: 100%;
-        top: 124px;
+        top: 74px;
         left: 0;
         height: 1px;
     }
