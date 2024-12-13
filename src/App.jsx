@@ -8,7 +8,6 @@ function App() {
   const tickets = useTickets();
   const [currency, setCurrency] = useState("RUB");
   const [stopsFilter, setStopsFilter] = useState(["all"]);
-  console.log(stopsFilter);
   return (
     <main>
       <div className="container">
