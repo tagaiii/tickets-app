@@ -73,7 +73,7 @@ const TicketCard = ({ ticket, currency }) => {
         )}
       </div>
       <div className="ticketCardInfo">
-        <div className="ticketCardFlightInfo">
+        <div className="ticketCardFlightInfo ticketCardInfoBlock">
           <h2 className="ticketCardTime">
             {formatTime(ticket.departure_time)}
           </h2>
@@ -84,14 +84,14 @@ const TicketCard = ({ ticket, currency }) => {
             {formatDate(ticket.departure_date)}
           </p>
         </div>
-        <div className="ticketCardStops">
+        <div className="ticketCardStops ticketCardInfoBlock">
           <p className="ticketCardDimmedText">ПЕРЕСАДОК: {ticket.stops}</p>
           <div className="stopsSeparator">
             <span className="stopsPlaneLine"></span>
             <Plane className="stopsPlane" />
           </div>
         </div>
-        <div className="ticketCardFlightInfo">
+        <div className="ticketCardFlightInfo ticketCardInfoBlock">
           <h2 className="ticketCardTime">{formatTime(ticket.arrival_time)}</h2>
           <p className="ticketCardRoute">
             {ticket.destination}, {ticket.destination_name}

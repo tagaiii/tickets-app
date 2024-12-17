@@ -79,7 +79,7 @@ body {
     justify-content: space-between;
     gap: 10px;
 }
-.ticketCardInfo > div {
+.ticketCardInfoBlock {
     flex: 1;
 }
 .ticketCardFlightInfo {
@@ -147,7 +147,7 @@ body {
 .currencyButtons {
     display: flex;
 }
-.currencyButtons button {
+.currencyButton {
     border: 1px solid #e2e2e2cc;
     padding: 12px 18px;
     text-align: center;
@@ -159,17 +159,17 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
-.currencyButtons button.active {
+.currencyButton.active {
     color: #fff;
     background-color: #409af7;
     cursor: default;
     pointer-events: none;
 }
-.currencyButtons button:first-of-type {
+.currencyButton:first-of-type {
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
-.currencyButtons button:last-of-type {
+.currencyButton:last-of-type {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -197,16 +197,16 @@ body {
     align-items: center;
     gap: 8px;
 }
-.stopCheckbox input[type="checkbox"] {
+.checkbox {
     width: 20px;
     height: 20px;
     cursor: pointer;
 }
-.stopCheckbox label {
+.checkboxLabel {
     cursor: pointer;
     user-select: none;
 }
-.stopCheckbox input[type="checkbox"]:checked {
+.checkbox:checked {
     background-color: #409af7;
 }
 .stopOnlyBtn {
@@ -227,7 +227,7 @@ body {
     }.stopCheckboxLine:hover .stopOnlyBtn {
         opacity: 1;
     }
-    .currencyButtons button:hover {
+    .currencyButton:hover {
         background-color: #409af71a;
         border-color: #409af7;
     }
@@ -243,7 +243,7 @@ body {
     .stopCheckboxLine .stopOnlyBtn {
          opacity: 1;
      }
-    .currencyButtons button:active {
+    .currencyButton:active {
         background-color: #409af71a;
         border-color: #409af7;
     }
@@ -288,7 +288,7 @@ body {
     .ticketCardInfo {
         width: 100%;
     }
-    .ticketCardInfo > div {
+    .ticketCardInfoBlock {
         flex: 0 1 auto;
     }
 }

@@ -9,7 +9,7 @@ const CurrencyButtonGroup = ({ handleCurrency, activeCurrency }) => {
           <button
             key={index}
             onClick={() => handleCurrency(currency)}
-            className={activeCurrency === currency ? "active" : ""}
+            className={`currencyButton ${activeCurrency === currency ? "active" : ""}`}
           >
             {currency}
           </button>

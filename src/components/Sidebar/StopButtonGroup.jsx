@@ -48,6 +48,7 @@ const StopButtonGroup = ({ handleStopsFilter, activeStopsFilter }) => {
             <div className="stopCheckbox">
               <div className="stopCheckboxInput">
                 <input
+                  className="checkbox"
                   type="checkbox"
                   id={option.value}
                   name={option.value}
@@ -64,7 +65,9 @@ const StopButtonGroup = ({ handleStopsFilter, activeStopsFilter }) => {
                     )
                   }
                 />
-                <label htmlFor={option.value}>{option.label}</label>
+                <label htmlFor={option.value} className="checkboxLabel">
+                  {option.label}
+                </label>
               </div>
               <span
                 className="stopOnlyBtn"
